@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Solutions | Digital Marketing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #0056b3;
+            --dark-bg: #1a1a1a;
+            --light-grey: #f8f9fa;
+            --text-main: #333;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 10%;
+        }
+
+        /* --- Layout Grid --- */
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        /* --- Left Side: Content --- */
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            color: #000;
+        }
+
+        .highlight {
+            background: linear-gradient(transparent 60%, rgba(0, 86, 179, 0.2) 40%);
+            border-left: 8px solid var(--primary-blue);
+            padding-left: 10px;
+        }
+
+        .hero-content p {
+            color: #666;
+            max-width: 450px;
+            margin-bottom: 35px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #003d7a;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: var(--dark-bg);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #000;
+            transform: translateY(-2px);
+        }
+
+        /* --- Logos --- */
+        .logos {
+            display: flex;
+            gap: 30px;
+            filter: grayscale(1);
+            opacity: 0.6;
+            align-items: center;
+        }
+
+        .logos i { font-size: 1.5rem; }
+
+        /* --- Right Side: Bento Grid --- */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 20px;
+        }
+
+        .card {
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            background: var(--light-grey);
+        }
+
+        /* Image Card (Top Left) */
+        .img-card {
+            grid-row: 1;
+            height: 300px;
+        }
+        .img-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .icon-overlay {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            background: var(--dark-bg);
+            color: var(--primary-blue);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            border: 5px solid white;
+        }
+
+        /* Stats Card (Top Right) */
+        .stats-card {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .stats-card h2 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+        .stats-card h2 span { color: var(--primary-blue); }
+        .stats-card p { font-size: 0.9rem; opacity: 0.8; margin-bottom: 20px; }
+        
+        .team-avatars {
+            display: flex;
+            align-items: center;
+        }
+        .team-avatars img {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: 2px solid var(--dark-bg);
+            margin-right: -10px;
+        }
+        .add-btn {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 15px;
+            font-size: 0.8rem;
+        }
+
+        /* Wide Card (Bottom) */
+        .wide-card {
+            grid-column: span 2;
+            background-color: var(--dark-bg);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 250px;
+        }
+        .wide-text {
+            padding: 40px;
+            color: white;
+        }
+        .wide-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        .wide-text h3 span { color: var(--primary-blue); }
+        .wide-text p { font-size: 0.85rem; opacity: 0.7; }
+
+        .wide-img {
+            position: relative;
+        }
+        .wide-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .arrow-link {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--primary-blue);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container { grid-template-columns: 1fr; }
+            body { padding: 20px; }
+            .hero-content h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="hero-content">
+            <h1><span class="highlight">Providing</span> Ideas & Solutions To Grow Your Brand</h1>
+            <p>We leverage data-driven strategies and creative thinking to elevate your corporate presence in an ever-evolving digital landscape.</p>
+            
+            <div class="btn-group">
+                <a href="#" class="btn btn-primary" id="scheduleBtn">Schedule <i class="fas fa-arrow-right"></i></a>
+                <a href="#" class="btn btn-secondary">Learn More</a>
+            </div>
+
+            <div class="logos">
+                <i class="fab fa-apple"></i>
+                <i class="fab fa-stripe"></i>
+                <i class="fab fa-google"></i>
+                <i class="fab fa-airbnb"></i>
+            </div>
+        </div>
+
+        <div class="bento-grid">
+            <div class="card img-card">
+                <div class="icon-overlay"><i class="fas fa-chart-line"></i></div>
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Team working">
+            </div>
+
+            <div class="card stats-card">
+                <h2>820<span>+</span></h2>
+                <p>Projects Finished Successfully with Global Partners</p>
+                <div class="team-avatars">
+                    <img src="https://i.pravatar.cc/100?u=1" alt="user">
+                    <img src="https://i.pravatar.cc/100?u=2" alt="user">
+                    <img src="https://i.pravatar.cc/100?u=3" alt="user">
+                    <img src="https://i.pravatar.cc/100?u=4" alt="user">
+                    <div class="add-btn"><i class="fas fa-plus"></i></div>
+                </div>
+            </div>
+
+            <div class="card wide-card">
+                <div class="wide-text">
+                    <h3>Mastering The Art Of <br><span>Digital Marketing</span></h3>
+                    <p>Unlock your brand's potential with tailored marketing funnels and high-conversion assets designed for the modern web.</p>
+                </div>
+                <div class="wide-img">
+                    <a href="#" class="arrow-link"><i class="fas fa-arrow-up-right-from-square"></i></a>
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Marketing analytics">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple Interaction Example
+        document.getElementById('scheduleBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            this.innerHTML = "Opening Calendar...";
+            setTimeout(() => {
+                alert("Redirection to scheduling system...");
+                this.innerHTML = 'Schedule <i class="fas fa-arrow-right"></i>';
+            }, 1000);
+        });
+
+        // Hover effect for the arrow
+        const arrow = document.querySelector('.arrow-link');
+        arrow.addEventListener('mouseenter', () => {
+            arrow.style.transform = 'scale(1.1) rotate(10deg)';
+        });
+        arrow.addEventListener('mouseleave', () => {
+            arrow.style.transform = 'scale(1) rotate(0deg)';
+        });
+    </script>
+</body>
+</html>

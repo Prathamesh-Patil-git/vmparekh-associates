@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Our Firm</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --text-dark: #111827;
+            --text-gray: #6b7280;
+            --bg-light: #f9fafb;
+            --border-color: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            width: 100%;
+            display: flex;
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            padding: 60px;
+            gap: 40px;
+            align-items: center;
+        }
+
+        /* Content Left Side */
+        .content-section {
+            flex: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 24px;
+            color: var(--text-dark);
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        p.description {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 32px;
+            font-size: 16px;
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 60px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: white;
+            border: 1px solid var(--border-color);
+            color: var(--primary-blue);
+        }
+
+        .btn-outline:hover {
+            background: #f3f4f6;
+        }
+
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 40px;
+        }
+
+        .stat-item h2 {
+            font-size: 42px;
+            font-weight: 400;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .stat-item p {
+            font-size: 13px;
+            color: #9ca3af;
+            line-height: 1.4;
+        }
+
+        /* Image Right Side */
+        .image-section {
+            flex: 1;
+            height: 100%;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 550px;
+            object-fit: cover;
+            border-radius: 32px;
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .container {
+                flex-direction: column-reverse;
+                padding: 30px;
+            }
+            .image-section, .content-section {
+                width: 100%;
+            }
+            .profile-img {
+                height: 400px;
+            }
+            h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="content-section">
+            <div class="badge">About Us</div>
+            <h1>About our firm</h1>
+            <p class="description">
+                At our firm, we pride ourselves on delivering tailored solutions 
+                that empower businesses to thrive. With years of experience 
+                across various industries, our dedicated team is committed to 
+                driving growth and operational excellence.
+            </p>
+
+            <div class="btn-group">
+                <a href="#" class="btn btn-primary" id="getStarted">
+                    Get Started &nbsp; →
+                </a>
+                <a href="#" class="btn btn-outline">Free trial</a>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h2 data-target="95">0%</h2>
+                    <p>Complete customer<br>satisfaction</p>
+                </div>
+                <div class="stat-item">
+                    <h2 data-target="10">0+</h2>
+                    <p>Innovation and<br>valuable insight</p>
+                </div>
+                <div class="stat-item">
+                    <h2 data-target="10">0m</h2>
+                    <p>Highly efficient<br>financial strategies</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-section">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1000" alt="Professional Woman" class="profile-img">
+        </div>
+    </div>
+
+    <script>
+        // Simple animation for the numbers
+        const stats = document.querySelectorAll('.stat-item h2');
+        
+        stats.forEach(stat => {
+            const target = +stat.getAttribute('data-target');
+            const suffix = stat.innerText.replace('0', ''); // Keep %, +, or m
+            
+            let count = 0;
+            const updateCount = () => {
+                const speed = 50; 
+                const increment = target / speed;
+
+                if (count < target) {
+                    count += increment;
+                    stat.innerText = Math.ceil(count) + suffix;
+                    setTimeout(updateCount, 20);
+                } else {
+                    stat.innerText = target + suffix;
+                }
+            };
+            
+            // Start animation
+            updateCount();
+        });
+
+        // Button click interaction
+        document.getElementById('getStarted').addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Welcome! Let’s start your journey.');
+        });
+    </script>
+</body>
+</html>
