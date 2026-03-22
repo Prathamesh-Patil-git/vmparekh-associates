@@ -1129,8 +1129,8 @@
                                                 <a href="#home" style="color: #0047AB !important;">Home</a>
                                             </li>
                                             <li class="menu-item menu-item-type-custom menu-item-object-custom">
-                                                <a href="#services" style="color: #0047AB !important;"
-                                                    onclick="event.preventDefault(); var dd=document.getElementById('navServicesDropdown'); var icon=document.getElementById('servicesToggleIcon'); dd.classList.toggle('open'); icon.classList.toggle('rotated');">Our
+                                                <a href="javascript:void(0);" style="color: #0047AB !important;"
+                                                    onclick="event.preventDefault(); event.stopPropagation(); var dd=document.getElementById('navServicesDropdown'); var icon=document.getElementById('servicesToggleIcon'); dd.classList.toggle('open'); icon.classList.toggle('rotated');">Our
                                                     Services <i id="servicesToggleIcon"
                                                         class="fas fa-chevron-down services-toggle-icon"></i></a>
                                                 <ul id="navServicesDropdown" class="nav-services-dropdown">
