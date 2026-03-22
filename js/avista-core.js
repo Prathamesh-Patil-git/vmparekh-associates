@@ -114,7 +114,7 @@
 		}
 	});
 
-	$(".offcanvas_box_active a").on("click", function () {
+	$(".offcanvas_box_active a").not("[href='javascript:void(0);']").on("click", function () {
 		$(".offcanvas_box_active").removeClass("active");
 		$(".wa-overly").removeClass("active");
 	});
